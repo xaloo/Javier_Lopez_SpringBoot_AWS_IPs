@@ -1,7 +1,7 @@
 package javier.lopez.demo.services;
 
-import javier.lopez.demo.entities.dto.IPRangeSummary;
+import javier.lopez.demo.entities.dto.Region;
 
 public interface AwsService {
-    IPRangeSummary getIpRanges();
+    String getIpRangesText(Region region);
 }

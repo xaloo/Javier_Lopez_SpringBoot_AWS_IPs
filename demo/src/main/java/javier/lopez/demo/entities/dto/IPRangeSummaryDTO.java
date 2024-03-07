@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
-public record IPRangeSummary(
+public record IPRangeSummaryDTO(
         @JsonProperty("syncToken") String syncToken,
         @JsonProperty("createDate") String createDate,
         @JsonProperty("prefixes") List<IPRangeDTO> prefixes) {

@@ -9,7 +9,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 public class CustomWebClient {
 
     @Value("${webclient.buffer.size.bytes}")
-    int webClientBufferSizeBytes;
+    private int webClientBufferSizeBytes;
 
     @Bean
     public WebClient getWebClient() {
