@@ -1,0 +1,32 @@
+name: CI Test, compile and docker build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Compile project
+        run: ./gradlew build -x test
+
+      - name: Run Gradle tests
+        run: ./gradlew test
+
+  dockerbuild:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build Docker image
+        run: docker build -t OttoSpringBoot .
