@@ -26,6 +26,4 @@ jobs:
           pwd
           ls -la
       - name: Compile project
-        run: ./gradlew build -x test
-      - name: Test
-        run: ./gradlew test
+        run: ./gradle build
