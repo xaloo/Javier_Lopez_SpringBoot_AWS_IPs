@@ -1,4 +1,4 @@
-name: CI Test, compile and docker build
+name: CI Test and compile
 
 on:
   push:
@@ -12,21 +12,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v3
 
       - name: Compile project
         run: ./gradlew build -x test
 
       - name: Run Gradle tests
         run: ./gradlew test
-
-  dockerbuild:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Build Docker image
-        run: docker build -t ottospringboot  .
